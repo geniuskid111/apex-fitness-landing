@@ -10,13 +10,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Summit Fitness Coaching — Transform Your Body in 90 Days',
+  title: 'Apex Fitness Coaching — Transform Your Body in 90 Days',
   description:
     'Online personal training that gets real results. 1-on-1 virtual coaching, custom meal plans, and weekly check-ins designed around your life.',
   generator: 'v0.app',
   keywords: ['online personal trainer', 'fitness coaching', 'virtual coaching', 'weight loss', '90 day transformation'],
   openGraph: {
-    title: 'Summit Fitness Coaching — Transform Your Body in 90 Days',
+    title: 'Apex Fitness Coaching — Transform Your Body in 90 Days',
     description:
       'Online personal training that gets real results. 1-on-1 virtual coaching, custom meal plans, and weekly check-ins.',
     type: 'website',

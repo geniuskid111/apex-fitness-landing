@@ -17,7 +17,7 @@ export function Footer() {
               <Mountain className="w-5 h-5 text-white" strokeWidth={2.5} />
             </div>
             <span className="text-white font-bold text-lg">
-              Summit Fitness Coaching
+              Apex Fitness Coaching
             </span>
           </div>
 
@@ -36,7 +36,7 @@ export function Footer() {
               <a
                 key={s.label}
                 href={s.href}
-                aria-label={`Follow Summit Fitness on ${s.label}`}
+                aria-label={`Follow Apex Fitness Coaching on ${s.label}`}
                 className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#2563eb]/20 hover:border-[#2563eb]/40 transition-all text-[10px] font-bold"
               >
                 {s.abbr}
@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-white/10 text-center text-slate-600 text-sm">
-          <p>&copy; 2026 Summit Fitness Coaching. All rights reserved.</p>
+          <p>&copy; 2026 Apex Fitness Coaching. All rights reserved.</p>
         </div>
       </div>
     </footer>

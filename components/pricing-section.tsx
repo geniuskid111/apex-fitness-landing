@@ -61,7 +61,7 @@ export function PricingSection() {
             Transparent Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-balance mb-4">
-            Choose Your Path to the Summit
+            Choose Your Path with Apex
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
             No hidden fees. Cancel anytime. All plans include a 7-day free trial so you can experience real coaching with zero risk.

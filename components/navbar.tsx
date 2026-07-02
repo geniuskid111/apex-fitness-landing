@@ -34,7 +34,7 @@ export function Navbar() {
               <Mountain className="w-5 h-5 text-white" strokeWidth={2.5} />
             </div>
             <span className="text-white font-bold text-lg tracking-tight">
-              Summit<span className="text-[#3b82f6]"> Fitness</span>
+              Apex Fitness<span className="text-[#3b82f6]"> Coaching</span>
             </span>
           </a>
 

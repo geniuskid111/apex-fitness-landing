@@ -96,7 +96,7 @@ export function HeroSection() {
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
                 <Image
                   src="/hero-fitness.png"
-                  alt="Athletic person training — Summit Fitness Coaching"
+                  alt="Athletic person training — Apex Fitness Coaching"
                   fill
                   className="object-cover"
                   priority

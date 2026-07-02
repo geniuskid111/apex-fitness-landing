@@ -48,7 +48,7 @@ export function TestimonialsSection() {
             Real Results
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-balance mb-4">
-            Stories from the Summit Community
+            Stories from the Apex Community
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
             Don&apos;t take our word for it. Here&apos;s what real clients say about their transformation.
