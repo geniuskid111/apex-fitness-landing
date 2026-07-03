@@ -1,4 +1,8 @@
+'use client'
+
+import { motion } from 'motion/react'
 import { Video, Salad, CalendarCheck } from 'lucide-react'
+import { useReveal } from '@/lib/motion-variants'
 
 const services = [
   {
@@ -25,57 +29,58 @@ const services = [
 ]
 
 export function ServicesSection() {
+  const { container, item } = useReveal()
+
   return (
-    <section id="services" className="py-20 lg:py-32 bg-[#0a1628]">
+    <section id="services" className="py-20 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#2563eb]/15 border border-[#2563eb]/30 text-[#3b82f6] text-sm font-semibold mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-border bg-surface text-muted text-sm font-semibold mb-4">
             What You Get
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-balance mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground text-balance mb-4">
             Everything You Need to Succeed
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-muted text-lg max-w-xl mx-auto leading-relaxed">
             A complete coaching system — not just a cookie-cutter program. Every element is built around your unique body, goals, and lifestyle.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {services.map((service) => {
             const Icon = service.icon
             return (
-              <div
+              <motion.div
                 key={service.title}
-                className="group relative rounded-2xl p-8 border border-white/10 bg-[#0f2040] hover:border-[#2563eb]/50 hover:bg-[#162d4a] transition-all duration-300 overflow-hidden"
+                variants={item}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="group relative rounded-2xl p-8 border border-border bg-surface hover:bg-surface-2 transition-all duration-300 overflow-hidden"
               >
-                {/* Subtle glow on hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{
-                    background:
-                      'radial-gradient(circle at 50% 0%, rgba(37,99,235,0.12) 0%, transparent 70%)',
-                  }}
-                  aria-hidden="true"
-                />
-
                 {/* Tag */}
-                <span className="inline-block px-3 py-1 rounded-full bg-[#2563eb]/20 text-[#3b82f6] text-xs font-semibold mb-6">
+                <span className="inline-block px-3 py-1 rounded-full border border-border bg-surface-2 text-muted text-xs font-semibold mb-6">
                   {service.highlight}
                 </span>
 
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-[#1e3a5f] flex items-center justify-center mb-6 group-hover:bg-[#2563eb]/30 transition-colors duration-300">
-                  <Icon className="w-7 h-7 text-[#3b82f6]" aria-hidden="true" />
+                <div className="w-14 h-14 rounded-xl bg-surface-2 border border-border flex items-center justify-center mb-6 transition-colors duration-300">
+                  <Icon className="w-7 h-7 text-muted" aria-hidden="true" />
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-slate-400 leading-relaxed text-sm">{service.description}</p>
-              </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
+                <p className="text-muted leading-relaxed text-sm">{service.description}</p>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

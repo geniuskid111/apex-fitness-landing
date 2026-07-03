@@ -24,10 +24,18 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a1628',
+  themeColor: '#0A0A0B',
   width: 'device-width',
   initialScale: 1,
 }
+
+/**
+ * Theme switcher — change data-theme only:
+ *   "volt"   — performance / energy (lime CTA)
+ *   "ignite" — urgency / transformation (orange-red CTA)
+ *   "summit" — premium / disciplined coaching (amber CTA)
+ */
+const ACTIVE_THEME = 'ignite' as 'volt' | 'ignite' | 'summit'
 
 export default function RootLayout({
   children,
@@ -35,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} bg-background`}>
-      <body className="font-sans antialiased">
+    <html lang="en" data-theme={ACTIVE_THEME} className={`${inter.variable} bg-background text-foreground`}>
+      <body className="font-sans antialiased bg-background text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

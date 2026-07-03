@@ -1,4 +1,8 @@
+'use client'
+
+import { motion } from 'motion/react'
 import { Star, Quote } from 'lucide-react'
+import { useReveal } from '@/lib/motion-variants'
 
 const testimonials = [
   {
@@ -35,81 +39,89 @@ function StarRating({ count }: { count: number }) {
 }
 
 export function TestimonialsSection() {
+  const { container, item } = useReveal()
+
   return (
     <section
       id="testimonials"
-      className="py-20 lg:py-32"
-      style={{ background: 'linear-gradient(180deg, #0a1628 0%, #0f2040 50%, #0a1628 100%)' }}
+      className="py-20 lg:py-32 bg-gradient-to-br from-background via-background to-surface"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#2563eb]/15 border border-[#2563eb]/30 text-[#3b82f6] text-sm font-semibold mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-border bg-surface text-muted text-sm font-semibold mb-4">
             Real Results
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white text-balance mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground text-balance mb-4">
             Stories from the Summit Community
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-muted text-lg max-w-xl mx-auto leading-relaxed">
             Don&apos;t take our word for it. Here&apos;s what real clients say about their transformation.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {testimonials.map((t) => (
-            <article
+            <motion.article
               key={t.name}
-              className="relative rounded-2xl p-8 bg-[#0f2040] border border-white/10 flex flex-col gap-5 hover:border-[#2563eb]/40 transition-colors duration-300"
+              variants={item}
+              className="relative rounded-2xl p-8 bg-surface border border-border flex flex-col gap-5 transition-colors duration-300"
             >
               {/* Quote icon */}
-              <Quote className="w-8 h-8 text-[#2563eb]/40 flex-shrink-0" aria-hidden="true" />
+              <Quote className="w-8 h-8 text-border flex-shrink-0" aria-hidden="true" />
 
               {/* Stars */}
               <StarRating count={t.rating} />
 
               {/* Quote text */}
-              <blockquote className="text-slate-300 leading-relaxed text-sm flex-1">
+              <blockquote className="text-muted leading-relaxed text-sm flex-1">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 
               {/* Result badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2563eb]/15 border border-[#2563eb]/30 self-start">
-                <span className="w-2 h-2 rounded-full bg-[#3b82f6]" aria-hidden="true" />
-                <span className="text-[#3b82f6] text-xs font-bold">{t.result}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-surface-2 self-start">
+                <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" />
+                <span className="text-muted text-xs font-bold">{t.result}</span>
               </div>
 
               {/* Author */}
-              <footer className="flex items-center gap-3 pt-2 border-t border-white/10">
+              <footer className="flex items-center gap-3 pt-2 border-t border-border">
                 <div
-                  className="w-10 h-10 rounded-full bg-[#2563eb] flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                  className="w-10 h-10 rounded-full bg-surface-2 border border-border flex items-center justify-center text-foreground text-sm font-bold flex-shrink-0"
                   aria-hidden="true"
                 >
                   {t.avatar}
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">{t.name}</p>
+                  <p className="text-foreground font-semibold text-sm">{t.name}</p>
                 </div>
               </footer>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         {/* Social proof bar */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-center">
           <div>
-            <p className="text-3xl font-extrabold text-white">4.9★</p>
-            <p className="text-slate-400 text-sm">Average Rating</p>
+            <p className="text-3xl font-extrabold text-foreground">4.9★</p>
+            <p className="text-muted text-sm">Average Rating</p>
           </div>
-          <div className="w-px h-10 bg-white/10 hidden sm:block" aria-hidden="true" />
+          <div className="w-px h-10 bg-border hidden sm:block" aria-hidden="true" />
           <div>
-            <p className="text-3xl font-extrabold text-white">500+</p>
-            <p className="text-slate-400 text-sm">Clients</p>
+            <p className="text-3xl font-extrabold text-foreground">500+</p>
+            <p className="text-muted text-sm">Clients</p>
           </div>
-          <div className="w-px h-10 bg-white/10 hidden sm:block" aria-hidden="true" />
+          <div className="w-px h-10 bg-border hidden sm:block" aria-hidden="true" />
           <div>
-            <p className="text-3xl font-extrabold text-white">97%</p>
-            <p className="text-slate-400 text-sm">Success Rate</p>
+            <p className="text-3xl font-extrabold text-foreground">97%</p>
+            <p className="text-muted text-sm">Success Rate</p>
           </div>
         </div>
       </div>
