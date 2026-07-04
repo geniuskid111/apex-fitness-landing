@@ -9,9 +9,9 @@ export function CoachSection() {
 
   return (
     <section id="coach" className="bg-base-surface py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          className="grid md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center max-w-3xl mx-auto"
+          className="grid md:grid-cols-[280px_1fr] gap-10 md:gap-16 items-center"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -19,33 +19,29 @@ export function CoachSection() {
         >
           <motion.div
             variants={item}
-            className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden border border-base-border shrink-0"
+            className="relative aspect-[4/5] w-full max-w-[280px] mx-auto md:mx-0 overflow-hidden rounded-2xl"
           >
             <Image
               src="/coach.jpg"
-              alt="Coach Marcus Hale"
+              alt="Coach Kerr"
               fill
               className="object-cover"
-              sizes="192px"
+              sizes="280px"
             />
           </motion.div>
 
-          <motion.div variants={item} className="text-center md:text-left">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-base-border bg-base text-ink-muted text-sm font-semibold mb-4">
-              Your Coach
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-ink mb-2">Marcus Hale</h2>
-            <ul className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
-              <li className="px-3 py-1 rounded-full border border-base-border bg-base text-ink-muted text-xs font-semibold">
-                NASM-CPT
-              </li>
-              <li className="px-3 py-1 rounded-full border border-base-border bg-base text-ink-muted text-xs font-semibold">
-                Precision Nutrition L1
-              </li>
-            </ul>
-            <p className="text-ink-muted leading-relaxed">
+          <motion.div variants={item} className="text-left">
+            <p className="text-volt text-sm uppercase tracking-widest mb-4">Your Coach</p>
+            <h2 className="font-display uppercase text-4xl md:text-5xl text-ink leading-[0.95] tracking-tight mb-4">
+              Coach Kerr
+            </h2>
+            <p className="text-ink-muted text-lg leading-relaxed mb-6 max-w-md">
               Former collegiate athlete helping busy professionals get lean without living in the gym.
             </p>
+            <ul className="space-y-2 text-ink-muted text-sm">
+              <li>NASM-CPT</li>
+              <li>Precision Nutrition L1</li>
+            </ul>
           </motion.div>
         </motion.div>
       </div>

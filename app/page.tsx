@@ -9,7 +9,7 @@ import { Footer } from '@/components/footer'
 
 export default function Page() {
   return (
-    <main className="bg-gradient-to-br from-background via-background to-surface text-foreground">
+    <main className="bg-base text-ink">
       <Navbar />
       <HeroSection />
       <ServicesSection />

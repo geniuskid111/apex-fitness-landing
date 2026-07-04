@@ -8,35 +8,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        surface: 'var(--surface)',
-        'surface-2': 'var(--surface-2)',
-        border: 'var(--border)',
-
-        foreground: 'var(--foreground)',
-        muted: 'var(--muted)',
-
-        cta: 'var(--cta)',
-        'cta-hover': 'var(--cta-hover)',
-        'cta-text': 'var(--cta-text)',
-
-        accent: 'var(--accent)',
-        success: 'var(--success)',
-
-        /* Aliases (base / ink / volt) */
         base: {
-          DEFAULT: 'var(--background)',
-          surface: 'var(--surface)',
-          border: 'var(--border)',
+          DEFAULT: '#0A0A0B',
+          surface: '#18181B',
+          border: '#3F3F46',
         },
         ink: {
-          DEFAULT: 'var(--foreground)',
-          muted: 'var(--muted)',
+          DEFAULT: '#FAFAFA',
+          muted: '#A1A1AA',
         },
         volt: {
-          DEFAULT: 'var(--cta)',
-          hover: 'var(--cta-hover)',
+          DEFAULT: '#D7FF3E',
+          hover: '#C2E82E',
         },
+        success: '#22C55E',
+      },
+      fontFamily: {
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
     },
   },

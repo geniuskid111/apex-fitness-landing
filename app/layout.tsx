@@ -1,11 +1,18 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Anton, Inter } from 'next/font/google'
 import './globals.css'
+
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -14,6 +21,11 @@ export const metadata: Metadata = {
   description:
     'Online personal training that gets real results. 1-on-1 virtual coaching, custom meal plans, and weekly check-ins designed around your life.',
   keywords: ['online personal trainer', 'fitness coaching', 'virtual coaching', 'weight loss', '90 day transformation'],
+  icons: {
+    icon: [{ url: '/logo.png', type: 'image/png' }],
+    apple: [{ url: '/logo.png', type: 'image/png' }],
+    shortcut: '/logo.png',
+  },
   openGraph: {
     title: 'Summit Fitness Coaching — Transform Your Body in 90 Days',
     description:
@@ -28,22 +40,14 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-/**
- * Theme switcher — change data-theme only:
- *   "volt"   — performance / energy (lime CTA)
- *   "ignite" — urgency / transformation (orange-red CTA)
- *   "summit" — premium / disciplined coaching (amber CTA)
- */
-const ACTIVE_THEME = 'ignite' as 'volt' | 'ignite' | 'summit'
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-theme={ACTIVE_THEME} className={`${inter.variable} bg-background text-foreground`}>
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html lang="en" className={`${anton.variable} ${inter.variable} bg-base text-ink`}>
+      <body className="font-body antialiased bg-base text-ink film-grain">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
